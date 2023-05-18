@@ -11,7 +11,6 @@ export function App() {
   const [page, setPage] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [images, setImages] = useState(null);
   const [modalImage, setModalImage] = useState(null);
 
@@ -34,7 +33,7 @@ export function App() {
       setImages(response.hits);
       setPage(page + 1);
     } catch (error) {
-      setError(error);
+      console.log(error);
     } finally {
       setLoading(false);
     }
@@ -47,7 +46,7 @@ export function App() {
       setImages([...images, ...response.hits]);
       setPage(page + 1);
     } catch (error) {
-      setError(error);
+      console.log(error);
     } finally {
       setLoading(false);
     }
